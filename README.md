@@ -33,3 +33,9 @@ bun dev
 ```
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+
+## App details
+
+### Authentication
+
+For authenticating users [kinde](https://kinde.com) is used.
