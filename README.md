@@ -38,4 +38,22 @@ Open [http://localhost:3000](http://localhost:3000) with your browser to see the
 
 ### Authentication
 
-For authenticating users [kinde](https://kinde.com) is used.
+For authenticating users [kinde](https://kinde.com) is used.  
+
+#### Authentication flow
+
+- user clicks on sign in and gets redirected to the kinde sign in page
+- after user signs in, he gets redirected back to the app dashboard page
+- while loading the dashboard page, we check if the user is already added to the db
+- if there is no user, we first add a new user and continue with the normal flow
+- if user already exists, we just continue with the normal flow of the application
+
+##### Authentication flow improvement
+- when a new user signs up, kinde triggers a webhook to our api endpoint
+- api endpoint for handling webhooks saves the data about the new user event
+- a background process detects the new user event and sends it out for handling
+- after the event is handled, a new user is added to the database and synced with the kinde users database
+
+#### "Hard things"
+
+- learn about tRPC setup - there are a couple of moving parts to this: query client, tRPC query client wrapper, app router, etc.
