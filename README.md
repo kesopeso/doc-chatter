@@ -38,7 +38,7 @@ Open [http://localhost:3000](http://localhost:3000) with your browser to see the
 
 ### Authentication
 
-For authenticating users [kinde](https://kinde.com) is used.  
+For authenticating users [kinde](https://kinde.com) is used.
 
 #### Authentication flow
 
@@ -49,6 +49,7 @@ For authenticating users [kinde](https://kinde.com) is used.
 - if user already exists, we just continue with the normal flow of the application
 
 ##### Authentication flow improvement
+
 - when a new user signs up, kinde triggers a webhook to our api endpoint
 - api endpoint for handling webhooks saves the data about the new user event
 - a background process detects the new user event and sends it out for handling
