@@ -1,0 +1,28 @@
+{
+    "overrides": [
+        {
+            "files": [".prettierrc", "*.json"],
+            "options": {
+                "tabWidth": 4,
+                "useTabs": false,
+                "bracketSpacing": true,
+                "endOfLine": "lf",
+                "trailingComma": "none"
+            }
+        },
+        {
+            "files": ["*.js", "*.jsx", "*.ts", "*.tsx"],
+            "options": {
+                "printWidth": 80,
+                "tabWidth": 4,
+                "useTabs": false,
+                "singleQuote": true,
+                "bracketSpacing": true,
+                "arrowParens": "always",
+                "endOfLine": "lf",
+                "semi": true,
+                "trailingComma": "es5"
+            }
+        }
+    ]
+}
