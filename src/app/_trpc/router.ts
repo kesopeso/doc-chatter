@@ -1,7 +1,8 @@
 import { db } from '@/db';
-import { publicProcedure, router } from '@/trpc/trpc';
 import { getKindeServerSession } from '@kinde-oss/kinde-auth-nextjs/server';
-import { TRPCError } from '@trpc/server';
+import { TRPCError, initTRPC } from '@trpc/server';
+
+const { router, procedure: publicProcedure } = initTRPC.create();
 
 export const appRouter = router({
     authCallback: publicProcedure.query(async () => {

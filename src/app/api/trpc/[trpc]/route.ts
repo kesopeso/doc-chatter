@@ -1,4 +1,4 @@
-import { appRouter } from '@/trpc';
+import { appRouter } from '@/app/_trpc/router';
 import { fetchRequestHandler } from '@trpc/server/adapters/fetch';
 
 const handler = (req: Request) => {

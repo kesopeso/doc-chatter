@@ -10,7 +10,7 @@ type ProvidersProps = {
 };
 
 const Providers = ({ children }: ProvidersProps) => {
-    const [queryClient] = useState(() => new QueryClient());
+    const [queryClient] = useState(new QueryClient());
     const [trpcClient] = useState(() =>
         trpc.createClient({
             links: [
@@ -20,7 +20,6 @@ const Providers = ({ children }: ProvidersProps) => {
             ],
         })
     );
-
     return (
         <trpc.Provider client={trpcClient} queryClient={queryClient}>
             <QueryClientProvider client={queryClient}>
