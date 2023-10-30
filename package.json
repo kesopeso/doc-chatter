@@ -7,11 +7,14 @@
         "build": "next build",
         "start": "next start",
         "lint": "next lint",
-        "format-code": "prettier --config .prettierrc '**/*.json' '**/*.js' '**/*.jsx' '**/*.ts' '**/*.tsx' --write"
+        "format-code": "prettier --config .prettierrc '**/*.json' '**/*.js' '**/*.jsx' '**/*.ts' '**/*.tsx' --write",
+        "prisma-db-push": "dotenv -e .env.local -- npx prisma db push",
+        "prisma-generate": "dotenv -e .env.local -- npx prisma generate"
     },
     "dependencies": {
         "@kinde-oss/kinde-auth-nextjs": "^1.8.25",
         "@prisma/client": "^5.5.2",
+        "@radix-ui/react-dialog": "^1.0.5",
         "@radix-ui/react-slot": "^1.0.2",
         "@tailwindcss/typography": "^0.5.10",
         "@tanstack/react-query": "^4.36.1",
@@ -34,6 +37,7 @@
         "@types/react": "^18",
         "@types/react-dom": "^18",
         "autoprefixer": "^10",
+        "dotenv-cli": "^7.3.0",
         "eslint": "^8",
         "eslint-config-next": "13.5.6",
         "postcss": "^8",
