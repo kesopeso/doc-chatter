@@ -2,7 +2,25 @@ import { db } from '@/db';
 import { getKindeServerSession } from '@kinde-oss/kinde-auth-nextjs/server';
 import { TRPCError, initTRPC } from '@trpc/server';
 
-const { router, procedure: publicProcedure } = initTRPC.create();
+const { router, procedure: publicProcedure, middleware } = initTRPC.create();
+
+const isAuth = middleware(async (opts) => {
+    const { getUser } = getKindeServerSession();
+    const user = getUser();
+
+    if (!user || !user.id) {
+        throw new TRPCError({ code: 'UNAUTHORIZED' });
+    }
+
+    return opts.next({
+        ctx: {
+            userId: user.id,
+            user,
+        },
+    });
+});
+
+const privateProcedure = publicProcedure.use(isAuth);
 
 export const appRouter = router({
     authCallback: publicProcedure.query(async () => {
@@ -22,6 +40,10 @@ export const appRouter = router({
         }
 
         return { success: true };
+    }),
+    getUserFiles: privateProcedure.query(async ({ ctx }) => {
+        const { userId } = ctx;
+        return await db.file.findMany({ where: { userId } });
     }),
 });
 
