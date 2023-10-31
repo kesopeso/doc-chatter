@@ -8,9 +8,9 @@
         "start": "next start",
         "lint": "next lint",
         "format-code": "prettier --config .prettierrc '**/*.json' '**/*.js' '**/*.jsx' '**/*.ts' '**/*.tsx' --write",
-        "prisma-db-push": "dotenv -e .env.local -- npx prisma db push",
-        "prisma-generate": "dotenv -e .env.local -- npx prisma generate",
-        "prisma-studio": "dotenv -e .env.local -- npx prisma studio"
+        "prisma-db-push": "dotenv -e .env.development -- npx prisma db push",
+        "prisma-generate": "dotenv -e .env.development -- npx prisma generate",
+        "prisma-studio": "dotenv -e .env.development -- npx prisma studio"
     },
     "dependencies": {
         "@kinde-oss/kinde-auth-nextjs": "^1.8.25",

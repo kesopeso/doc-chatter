@@ -8,28 +8,26 @@ I'm doing this just to try out my new neovim setup and maybe change a thing or t
 
 ## Running the app
 
-First install all the dependencies.
+This application is dockerized to make it easier to maintain, run and reduce the number of external dependencies.
+
+### Dependencies installation
+
+Project dependencies need to be installed first.
 
 ```bash
-npm install
-# or
-yarn install
-# or
-pnpm install
-# or
-bun install
+bin/install
 ```
 
-Run the development server by executing one of the following commands.
+### Auth provider setup
+
+You will need to create a [Kinde](https://kinde.com) account, which will be used for user authentication. Rename the .env.local.example to .env.local and add the required Kinde credentials.
+
+### Running the application
+
+Run the development server alongside a postgres database.
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+bin/start
 ```
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
@@ -41,13 +39,13 @@ Open [http://localhost:3000](http://localhost:3000) with your browser to see the
 I deviated from Josh's single .env file definition here and stuck to the recommendations made by next.js.\
 As per Next.js docs:
 
-- .env, .env.development, .env.production, .env.test define defaults for the environment that's currently running (.env applies to every environment) and should be included in the git repository
+- files .env (all environments), .env.development, .env.production, .env.test define defaults for the environment that's currently running and should all be included in the git repository
 - .env.local is the file that contains the secrets, it is applied to the currently running environment and should be included in the .gitignore file
 - small gotcha: when running tests (NODE_ENV=test), .env.local is ignored, because we want every test on every machine to load the exact same variables
 
 ### Authentication
 
-For authenticating users [kinde](https://kinde.com) is used.
+For user authentication [Kinde](https://kinde.com) is used.
 
 #### Flow
 
@@ -66,12 +64,12 @@ For authenticating users [kinde](https://kinde.com) is used.
 
 ### Database
 
-Application database is currently hosted on [planetscale](https://app.planetscale.com). They offer a free tier, which is more than enough for my requirements.\
-Prisma is used for accessing/working with the database.
+Prisma is used for accessing/working with the database.\
+While Josh uses [PlanetScale](https://app.planetscale.com) for the database, this application is dockerized and it has a dedicated container for the database.\
+You can manage the database with Adminer, just visit [http://localhost:3001](http://localhost:3001). Another option is to run prisma studio and manage the database from there.
 
 ## TODOs (learning, improvements, etc etc.)
 
 - learn about tRPC setup - there are a couple of moving parts to this: query client, tRPC query client wrapper, app router, etc.
 - learn about prisma
 - dependency injection in node.js/react/next.js ecosystem (sure this can be done manually, but production ready solutions already exist for this)
-- as metioned above, replace hardcoded db access with dependency injection, so i can switch between dbs seamlessly (eg. in differents environments)
