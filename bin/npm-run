@@ -1,3 +1,0 @@
-#!/usr/bin/env bash
-
-bin/docker-compose exec doc-chatter-app npm run "$@"
