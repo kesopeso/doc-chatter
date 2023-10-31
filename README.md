@@ -15,7 +15,7 @@ This application is dockerized to make it easier to maintain, run and reduce the
 Project dependencies need to be installed first.
 
 ```bash
-bin/install
+bin/npm install
 ```
 
 ### Auth provider setup
