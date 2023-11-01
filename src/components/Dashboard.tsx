@@ -39,7 +39,7 @@ const Dashboard = () => {
                                     href={`/dashboard/${f.id}`}
                                     className="flex flex-col gap-2"
                                 >
-                                    <div className="pt-6 px-6 flex w-full items-center justify-between space-x-6">
+                                    <div className="p-6 flex w-full items-center justify-between space-x-6">
                                         <div className="h-10 w-10 flex-shrink-0 rounded-full bg-gradient-to-r from-cyan-500 to-blue-500" />
                                         <div className="flex-1 truncate">
                                             <div className="flex items-center space-x-3">
@@ -51,7 +51,7 @@ const Dashboard = () => {
                                     </div>
                                 </Link>
 
-                                <div className="px-6 mt-4 grid grid-cols-3 place-items-center py-2 gap-6 text-xs text-zinc-500">
+                                <div className="px-6 grid grid-cols-3 place-items-center py-2 gap-6 text-xs text-zinc-500">
                                     <div className="flex items-center gap-2">
                                         <Plus className="h-4 w-4" />
                                         {format(
