@@ -11,14 +11,14 @@ const UploadDropzone = () => {
             {({ getRootProps, getInputProps, acceptedFiles }) => (
                 <div
                     {...getRootProps()}
-                    className="border h-64 m-4 border-dashed border-gray-300 rounded-lg"
+                    className="m-4 h-64 rounded-lg border border-dashed border-gray-300"
                 >
-                    <div className="flex items-center justify-center h-full w-full">
+                    <div className="flex h-full w-full items-center justify-center">
                         <label
                             htmlFor="dropzone-file"
-                            className="flex flex-col items-center justify-center w-full h-full rounded-lg cursor-pointer bg-gray-50 hover:bg-gray-100"
+                            className="flex h-full w-full cursor-pointer flex-col items-center justify-center rounded-lg bg-gray-50 hover:bg-gray-100"
                         >
-                            <div className="flex flex-col items-center justify-center pt-5 pb-6">
+                            <div className="flex flex-col items-center justify-center pb-6 pt-5">
                                 example
                             </div>
                         </label>

@@ -23,7 +23,14 @@
                 "semi": true,
                 "trailingComma": "es5"
             }
+        },
+        {
+            "files": ["*.yml", "*.yaml"],
+            "options": {
+                "tabWidth": 4,
+                "endOfLine": "lf"
+            }
         }
     ],
-    "plugins": ["prettier-plugin-prisma"]
+    "plugins": ["prettier-plugin-prisma", "prettier-plugin-tailwindcss"]
 }
