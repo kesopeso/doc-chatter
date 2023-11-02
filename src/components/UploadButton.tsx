@@ -5,7 +5,7 @@ import { Dialog, DialogContent, DialogTrigger } from '@/components/ui/dialog';
 import { Progress } from '@/components/ui/progress';
 import { Button } from '@/components/ui/button';
 import Dropzone from 'react-dropzone';
-import { Cloud, File } from 'lucide-react';
+import { Cloud, File, Loader2 } from 'lucide-react';
 import { useUploadThing } from '@/lib/uploadthing';
 import { useToast } from '@/components/ui/use-toast';
 import { trpc } from '@/app/_trpc/client';
@@ -129,9 +129,20 @@ const UploadDropzone = () => {
                             {showProgressBar && (
                                 <div className="mx-auto mt-4 w-full max-w-xs">
                                     <Progress
+                                        indicatorColor={
+                                            uploadProgress === 100
+                                                ? 'bg-green-500'
+                                                : undefined
+                                        }
                                         value={uploadProgress}
                                         className="h-1 w-full bg-zinc-200"
                                     />
+                                    {uploadProgress === 100 && (
+                                        <div className="flex items-center justify-center gap-1 pt-2 text-center text-sm text-zinc-700">
+                                            <Loader2 className="h3 w-3 animate-spin" />
+                                            Redirecting...
+                                        </div>
+                                    )}
                                 </div>
                             )}
 
